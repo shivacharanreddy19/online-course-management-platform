@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — LearnSphere</title>
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="%236e5bff" stroke-width="3"/><circle cx="24" cy="24" r="7" fill="%234cd4ff"/></svg>'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="nav-root"></div>
+  <div class="nav-page-offset"></div>
+
+  <main class="container section-sm" style="padding-top:2rem">
+    <div class="section-head" data-reveal>
+      <span class="kicker"><span class="dot"></span> Account</span>
+      <h1 style="font-size:clamp(1.5rem,3.4vw,2rem);margin:.8rem 0 .3rem">Your profile</h1>
+      <p class="text-muted">Manage your identity, avatar and security settings.</p>
+    </div>
+    <div id="profile-root">
+      <div class="page-loader" style="position:static;background:none"><div class="loader-orb"></div></div>
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      await LS.ui.initNav({ active: "dashboard" });
+      LS.ui.initFooter();
+      LS.pages.initProfile();
+    });
+  </script>
+</body>
+</html>

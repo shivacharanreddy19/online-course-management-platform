@@ -1,0 +1,121 @@
+/* ============================================================================
+   LearnSphere — responsive.css
+   Intentional mobile/tablet adaptations (not just "shrink the desktop").
+   ========================================================================== */
+
+/* ---------------------------------------------------------- large laptops */
+@media (max-width: 1180px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpi-hero { grid-column: span 2; }
+}
+
+/* ---------------------------------------------------------- tablets */
+@media (max-width: 1020px) {
+  .hero-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { min-height: 420px; max-width: 560px; }
+  .why-layout { grid-template-columns: 1fr; }
+  .dash-cols { grid-template-columns: 1fr; }
+  .course-hero-grid { grid-template-columns: 1fr; }
+  .buy-card { position: static; max-width: 480px; }
+
+  /* learning workspace: sidebar becomes off-canvas drawer */
+  .learn-body { grid-template-columns: 1fr; }
+  .learn-side {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(360px, 92vw); z-index: 90;
+    transform: translateX(103%); transition: transform var(--t-med);
+    background: rgba(10, 14, 26, 0.98); box-shadow: var(--shadow-pop);
+  }
+  body.learn-side-open .learn-side { transform: translateX(0); }
+  .ls-toggle { display: inline-flex; }
+
+  /* app shell: sidebar becomes a drawer */
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0; width: min(300px, 88vw);
+    transform: translateX(-103%); transition: transform var(--t-med);
+    box-shadow: var(--shadow-pop); z-index: 90;
+  }
+  body.side-open .sidebar { transform: translateX(0); }
+  .app-burger { display: grid; }
+  body.side-open::after { content: ""; position: fixed; inset: 0; z-index: 85; background: rgba(4,6,12,.6); }
+}
+
+/* ---------------------------------------------------------- small tablets */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-burger { display: grid; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .steps { grid-template-columns: 1fr; }
+  .learn-list { grid-template-columns: 1fr; }
+  .review-summary { grid-template-columns: 1fr; text-align: center; }
+  .rs-bars { max-width: 420px; margin-inline: auto; width: 100%; }
+  .dash-cols-even { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------------------------------- phones */
+@media (max-width: 640px) {
+  :root { --nav-h: 64px; }
+  body { font-size: 0.92rem; }
+  .container { width: 94vw; }
+
+  .hero { padding-top: calc(var(--nav-h) + 2.2rem); }
+  .hero-search { flex-wrap: wrap; border-radius: var(--r-md); padding: 0.6rem; }
+  .hero-search input { flex: 1 1 100%; padding: 0.55rem 0.4rem; }
+  .hero-search .btn { width: 100%; }
+  .hero-stats { flex-wrap: wrap; gap: 1.2rem; }
+  .hero-visual { min-height: 380px; }
+  .hv-certificate { left: -2%; }
+  .hv-progress { right: -2%; }
+  .hv-main { inset: 4% 2% auto 2%; }
+
+  .kpi-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .kpi-hero { grid-column: span 2; }
+  .kpi .kpi-val { font-size: 1.3rem; }
+  .welcome-band { flex-direction: column; align-items: flex-start; }
+
+  .course-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .cc-body { padding: 0.9rem 0.95rem 1rem; }
+  .cc-title { font-size: 0.92rem; }
+  .cc-meta { flex-wrap: wrap; gap: 0.5rem; }
+
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar .input, .toolbar .select { width: 100%; }
+  .toolbar .spacer { display: none; }
+
+  .continue-card { grid-template-columns: 96px 1fr; gap: 0.8rem; }
+  .continue-card .row-art { height: 74px; }
+
+  .stage-title-row { flex-direction: column; }
+  .mark-done-btn { width: 100%; }
+  .stage-nav { flex-direction: column; }
+  .stage-nav .btn { width: 100%; }
+  .lt-progress .progress { display: none; }
+
+  .modal { max-height: 94vh; }
+  .modal-backdrop { padding: 0.6rem; align-items: end; }
+  .modal { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+  .toast-stack { bottom: 0.8rem; right: 0.8rem; left: 0.8rem; width: auto; }
+  .certificate-doc { padding: 1rem; }
+  .cert-sign .sig-line { width: 110px; }
+}
+
+/* very small */
+@media (max-width: 420px) {
+  .course-grid { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .kpi-hero { grid-column: span 1; }
+  .buy-card { max-width: none; }
+  .hero-proof { flex-wrap: wrap; }
+}
+
+/* landscape phones — learning page keeps the video usable */
+@media (max-height: 500px) and (orientation: landscape) {
+  .player-wrap { max-height: 100vh; }
+}
+
+/* touch devices: disable hover-float effects that feel cheap */
+@media (hover: none) {
+  .btn:hover, .course-card:hover, .card-hover:hover, .cat-card:hover { transform: none; }
+}

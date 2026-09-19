@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in — LearnSphere</title>
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="%236e5bff" stroke-width="3"/><circle cx="24" cy="24" r="7" fill="%234cd4ff"/></svg>'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="auth-page">
+    <!-- brand side -->
+    <aside class="auth-brand">
+      <div class="hero-grid-lines"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <a class="brand" href="index.html" style="color:#fff">
+        <svg width="34" height="34" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="url(#lgl)" stroke-width="2.6"/><ellipse cx="24" cy="24" rx="20" ry="8" stroke="url(#lgl)" stroke-width="1.6" opacity=".65" transform="rotate(-24 24 24)"/><circle cx="24" cy="24" r="7" fill="url(#lgl)"/><defs><linearGradient id="lgl" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#6e5bff"/><stop offset="1" stop-color="#4cd4ff"/></linearGradient></defs></svg>
+        <span>Learn<b>Sphere</b></span>
+      </a>
+      <div class="auth-brand-copy">
+        <span class="kicker"><span class="dot"></span> Welcome back</span>
+        <h1>Your next lesson is <span class="grad-text">one login</span> away</h1>
+        <p>Pick up exactly where you left off — progress, quizzes, certificates and all.</p>
+        <div class="auth-orbit" aria-hidden="true">
+          <span class="orbit-ring r1"><span class="sat"></span></span>
+          <span class="orbit-ring r2"><span class="sat" style="background:#4cd4ff"></span></span>
+          <span class="orbit-ring r3"><span class="sat" style="background:#38d9a9"></span></span>
+          <span class="orbit-core">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b9adff" stroke-width="1.7"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-1.8 7 5.3-2.8 5.3 2.8-1.8-7"/></svg>
+          </span>
+        </div>
+      </div>
+      <figure class="auth-quote">
+        <blockquote>"The beautiful thing about learning is that nobody can take it away from you."</blockquote>
+        <figcaption>— B.B. King</figcaption>
+      </figure>
+    </aside>
+
+    <!-- form side -->
+    <main class="auth-main">
+      <div class="auth-card" id="login-view">
+        <div class="a-head">
+          <h2>Log in to LearnSphere</h2>
+          <p>Enter your credentials to continue learning.</p>
+        </div>
+        <div class="auth-alert" id="auth-alert"></div>
+        <form id="login-form" novalidate>
+          <div class="field">
+            <label class="label" for="l-email">Email</label>
+            <input class="input" id="l-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label class="label" for="l-password">Password</label>
+            <div class="input-group" style="position:relative">
+              <input class="input" id="l-password" name="password" type="password" placeholder="••••••••" autocomplete="current-password" required style="padding-right:2.6rem">
+              <button type="button" class="pw-toggle" aria-label="Show password"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+            <span class="field-error"></span>
+          </div>
+          <a href="#" class="link forgot-link" id="forgot-link">Forgot your password?</a>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">
+            Log in
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
+          </button>
+        </form>
+        <p class="auth-switch">New to LearnSphere? <a class="link" href="register.html">Create a free account</a></p>
+        <div class="auth-alt">
+          <div class="divider">or continue exploring</div>
+          <a href="courses.html" class="btn btn-ghost btn-block">Browse courses without an account</a>
+        </div>
+      </div>
+
+      <!-- reset password view (arrives via email link) -->
+      <div class="auth-card hidden" id="reset-view">
+        <div class="a-head">
+          <h2>Choose a new password</h2>
+          <p>Almost done — set a fresh password for your account.</p>
+        </div>
+        <div class="auth-alert" id="auth-alert"></div>
+        <form id="reset-form" novalidate>
+          <div class="field">
+            <label class="label" for="np1">New password</label>
+            <div class="input-group" style="position:relative">
+              <input class="input" id="np1" name="password" type="password" placeholder="At least 6 characters" style="padding-right:2.6rem">
+              <button type="button" class="pw-toggle" aria-label="Show password"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label class="label" for="np2">Confirm password</label>
+            <input class="input" id="np2" name="password2" type="password" placeholder="Repeat it">
+            <span class="field-error"></span>
+          </div>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Update password</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (LS.api.session.token()) { LS.ui.guard(null, { silent: true }).then(p => { if (p) location.href = LS.ui.dashHref(p); }); }
+      LS.auth.initLoginPage();
+    });
+  </script>
+</body>
+</html>

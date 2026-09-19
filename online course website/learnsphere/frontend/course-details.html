@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course — LearnSphere</title>
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="%236e5bff" stroke-width="3"/><circle cx="24" cy="24" r="7" fill="%234cd4ff"/></svg>'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/course.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="nav-root"></div>
+  <div id="details-root"></div>
+  <div id="footer-root"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/courses.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      await LS.ui.initNav({ active: "courses" });
+      LS.ui.initFooter();
+      LS.pages.initDetails();
+      // live-update document title once the course loads
+      const obs = new MutationObserver(() => {
+        const h1 = document.querySelector(".course-hero h1");
+        if (h1) { document.title = h1.textContent + " — LearnSphere"; obs.disconnect(); }
+      });
+      obs.observe(document.getElementById("details-root"), { childList: true, subtree: true });
+    });
+  </script>
+</body>
+</html>

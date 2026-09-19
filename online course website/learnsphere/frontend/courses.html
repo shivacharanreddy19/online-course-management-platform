@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse courses — LearnSphere</title>
+  <meta name="description" content="Search and filter hundreds of expert-led courses on LearnSphere.">
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="%236e5bff" stroke-width="3"/><circle cx="24" cy="24" r="7" fill="%234cd4ff"/></svg>'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/course.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="nav-root"></div>
+  <div class="nav-page-offset"></div>
+
+  <!-- page head -->
+  <section class="section-sm" style="padding-top:2.2rem;position:relative;overflow:clip">
+    <div class="orb orb-1" style="width:420px;height:420px;top:-240px;right:-120px"></div>
+    <div class="container">
+      <div data-reveal>
+        <span class="kicker"><span class="dot"></span> Course catalog</span>
+        <h1 style="font-size:clamp(1.7rem,4vw,2.5rem);margin:.9rem 0 .4rem">Find your next <span class="grad-text">obsession</span></h1>
+        <p class="text-muted" style="max-width:56ch">Every course is human-reviewed before it goes live. Search it, filter it, preview it — no noise, just signal.</p>
+      </div>
+
+      <!-- search + sort row -->
+      <div class="flex mt-3 wrap" style="gap:.9rem" data-reveal>
+        <div class="input-group" style="flex:1;min-width:240px">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.8-4.8"/></svg>
+          <input class="input" id="filter-search" type="search" placeholder="Search titles, topics, instructors…">
+        </div>
+        <select class="select" id="filter-sort" style="width:auto" aria-label="Sort courses">
+          <option value="popular">Most popular</option>
+          <option value="rating">Highest rated</option>
+          <option value="newest">Newest</option>
+          <option value="price_asc">Price: low → high</option>
+          <option value="price_desc">Price: high → low</option>
+        </select>
+      </div>
+
+      <!-- filter chips -->
+      <div class="grid mt-2" style="gap:.6rem" data-reveal>
+        <div class="flex wrap" style="gap:.5rem" id="filter-categories"></div>
+        <div class="flex wrap" style="gap:1.2rem;align-items:center">
+          <span class="flex" style="gap:.5rem"><span class="text-dim" style="font-size:.78rem;font-weight:700;letter-spacing:.08em">LEVEL</span>
+            <span class="chip-row" id="filter-level">
+              <button class="filter-chip active" data-value="">All</button>
+              <button class="filter-chip" data-value="beginner">Beginner</button>
+              <button class="filter-chip" data-value="intermediate">Intermediate</button>
+              <button class="filter-chip" data-value="advanced">Advanced</button>
+            </span></span>
+          <span class="flex" style="gap:.5rem"><span class="text-dim" style="font-size:.78rem;font-weight:700;letter-spacing:.08em">PRICE</span>
+            <span class="chip-row" id="filter-price">
+              <button class="filter-chip active" data-value="">All</button>
+              <button class="filter-chip" data-value="free">Free</button>
+              <button class="filter-chip" data-value="paid">Paid</button>
+            </span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- results -->
+  <section class="section-sm" style="padding-top:0">
+    <div class="container">
+      <p class="text-dim mb-2" id="catalog-count" style="font-size:.85rem">Loading courses…</p>
+      <div class="course-grid" id="catalog-grid"></div>
+      <div class="pagination" id="catalog-pagination"></div>
+    </div>
+  </section>
+
+  <div id="footer-root"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/courses.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      await LS.ui.initNav({ active: "courses" });
+      LS.ui.initFooter();
+      LS.ui.bindReveals(document);
+      LS.pages.initCatalog();
+    });
+  </script>
+</body>
+</html>

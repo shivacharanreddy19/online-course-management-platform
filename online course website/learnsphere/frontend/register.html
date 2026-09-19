@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account — LearnSphere</title>
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="%236e5bff" stroke-width="3"/><circle cx="24" cy="24" r="7" fill="%234cd4ff"/></svg>'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="auth-page">
+    <!-- brand side -->
+    <aside class="auth-brand">
+      <div class="hero-grid-lines"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <a class="brand" href="index.html" style="color:#fff">
+        <svg width="34" height="34" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="url(#lgr)" stroke-width="2.6"/><ellipse cx="24" cy="24" rx="20" ry="8" stroke="url(#lgr)" stroke-width="1.6" opacity=".65" transform="rotate(-24 24 24)"/><circle cx="24" cy="24" r="7" fill="url(#lgr)"/><defs><linearGradient id="lgr" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#6e5bff"/><stop offset="1" stop-color="#4cd4ff"/></linearGradient></defs></svg>
+        <span>Learn<b>Sphere</b></span>
+      </a>
+      <div class="auth-brand-copy">
+        <span class="kicker"><span class="dot"></span> Join free today</span>
+        <h1>Start learning <span class="grad-text">in under a minute</span></h1>
+        <p>One account unlocks the catalog, the learning workspace, wishlists, certificates and full progress tracking.</p>
+        <div class="auth-orbit" aria-hidden="true">
+          <span class="orbit-ring r1"><span class="sat"></span></span>
+          <span class="orbit-ring r2"><span class="sat" style="background:#4cd4ff"></span></span>
+          <span class="orbit-ring r3"><span class="sat" style="background:#38d9a9"></span></span>
+          <span class="orbit-core">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b9adff" stroke-width="1.7"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 12v5c3 2.6 8 2.6 11 0v-5"/></svg>
+          </span>
+        </div>
+      </div>
+      <figure class="auth-quote">
+        <blockquote>"Every expert was once a beginner. Every pro was once an amateur."</blockquote>
+        <figcaption>— Robin Sharma</figcaption>
+      </figure>
+    </aside>
+
+    <!-- form side -->
+    <main class="auth-main">
+      <div class="auth-card">
+        <div class="a-head">
+          <h2>Create your account</h2>
+          <p>Choose how you'll use LearnSphere — you can browse instantly.</p>
+        </div>
+        <div class="auth-alert" id="auth-alert"></div>
+
+        <form id="register-form" novalidate>
+          <div class="field">
+            <label class="label">I want to…</label>
+            <div class="role-pick">
+              <button type="button" class="role-card selected" data-role="student">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 12v5c3 2.6 8 2.6 11 0v-5"/></svg></span>
+                <b>Learn</b><span>Take courses, earn certificates</span>
+                <span class="rc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m4.5 12.5 5 5 10-11"/></svg></span>
+              </button>
+              <button type="button" class="role-card" data-role="instructor">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4m-4 0h8"/></svg></span>
+                <b>Teach</b><span>Publish &amp; sell courses</span>
+                <span class="rc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m4.5 12.5 5 5 10-11"/></svg></span>
+              </button>
+            </div>
+            <div class="role-note hidden" id="instructor-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11.5V16"/></svg>
+              <span>Instructor accounts require admin approval before you can publish courses.</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="r-name">Full name</label>
+            <input class="input" id="r-name" name="full_name" type="text" placeholder="Ada Lovelace" autocomplete="name" required>
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label class="label" for="r-email">Email</label>
+            <input class="input" id="r-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label class="label" for="r-password">Password</label>
+            <div class="input-group" style="position:relative">
+              <input class="input" id="r-password" name="password" type="password" placeholder="At least 6 characters" autocomplete="new-password" required style="padding-right:2.6rem">
+              <button type="button" class="pw-toggle" aria-label="Show password"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+            <div class="pw-meter" id="pw-meter"><i></i><i></i><i></i><i></i></div>
+            <span class="field-error"></span>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit">
+            Create free account
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
+          </button>
+        </form>
+
+        <p class="auth-switch">Already have an account? <a class="link" href="login.html">Log in</a></p>
+        <p class="hint" style="text-align:center;margin-top:1rem">By registering you agree to our Terms &amp; Privacy Policy.<br>Admin accounts can never be created from this form.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => LS.auth.initRegisterPage());
+  </script>
+</body>
+</html>
